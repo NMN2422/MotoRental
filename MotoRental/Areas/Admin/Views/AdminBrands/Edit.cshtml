@@ -1,0 +1,41 @@
+﻿@model MotoRental.Models.Brand
+
+@{
+    ViewData["Title"] = "Chỉnh sửa danh mục: " + Model.BrandName;
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="page-header">
+    <div class="header-sub-title">
+        <nav class="breadcrumb breadcrumb-dash">
+            <a asp-area="Admin" asp-controller="Home" asp-action="Index" class="breadcrumb-item"><i class="anticon anticon-home m-r-5"></i>Home</a>
+            <a class="breadcrumb-item" asp-area="Admin" asp-controller="AdminBrands" asp-action="Index">Danh sách hãng xe</a>
+            <span class="breadcrumb-item active">Chỉnh sửa hãng xe : @Model.BrandName</span>
+        </nav>
+    </div>
+</div>
+
+<form asp-controller="AdminBrands" asp-action="Edit" asp-route-id="@Model.BrandId" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <input type="hidden" asp-for="BrandId" />
+    <div class="page-header no-gutters has-tab">
+        <div class="d-md-flex m-b-15 align-items-center justify-content-between">
+            <div class="media align-items-center m-b-15">
+            </div>
+            <div class="m-b-15">
+                <button class="btn btn-primary">
+                    <i class="anticon anticon-save"></i>
+                    <span>Save</span>
+                </button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="font-weight-semibold" for="productName">Tên hãng</label>
+            <input type="text" class="form-control" asp-for="BrandName">
+        </div>
+        <div class="form-group">
+            <label class="font-weight-semibold" for="productName">Mô tả</label>
+            <input type="text" class="form-control" asp-for="Description">
+        </div>
+    </div>
+</form>

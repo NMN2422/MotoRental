@@ -1,0 +1,256 @@
+﻿<header class="main-header_area position-relative">
+    <div class="header-top border-bottom d-none d-md-block">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-6">
+                    <div class="header-top-left">
+                        <ul class="dropdown-wrap text-matterhorn">
+                            <li class="dropdown">
+                                <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    English
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="languageButton">
+                                    <li><a class="dropdown-item" href="#">Tiếng việt</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="currencyButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                    USD
+                                </button>
+                                <ul class="dropdown-menu" aria-labelledby="currencyButton">
+                                    <li><a class="dropdown-item" href="#">VNĐ</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="header-top-right text-matterhorn">
+                        <p class="shipping mb-0">Giao xe tận nơi và nhanh chóng</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-middle py-1">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="header-middle-wrap">
+                        <a href="/" class="header-logo">
+                            <img style="width: 180px; height: 100px;" src="~/images/logo.png" alt="Header Logo">
+                        </a>
+                        <div class="header-search-area d-none d-lg-block">
+                           @* <form class="header-searchbox">
+                                <select class="input-select nice-select select-search-category wide" id="brandSelect">
+                                    <!-- List categories lấy = js -->
+                                </select>
+                                <input id="keyword" name="keyword" class="input-field" type="text" placeholder="Nhập hãng xe">
+                                <button class="btn btn-outline-whisper btn-primary-hover" type="submit"><i class="pe-7s-search"></i></button>
+                            </form>*@
+                            <style>
+                                form {
+                                    display: flex;
+                                    align-items: center;
+                                }
+
+                                .input-select,
+                                #keyword,
+                                .search-btn {
+                                    border: 1px solid #ccc; /* Đường viền */
+                                    border-radius: 4px; /* Bo góc */
+                                    margin-right: 5px; /* Khoảng cách giữa các thành phần */
+                                }
+
+                                .input-select,
+                                #keyword {
+                                    padding: 8px;
+                                    font-size: 14px;
+                                }
+
+                                #keyword {
+                                    flex: 1; /* Để nó chiếm phần còn lại của không gian */
+                                }
+
+                                .search-btn {
+                                    padding: 8px 12px;
+                                    font-size: 14px;
+                                    background-color: rgb(90, 133, 97); /* Màu xanh lá cây */
+                                    color: white;
+                                    border: none;
+                                    cursor: pointer;
+                                }
+
+                                    .search-btn:hover {
+                                        background-color: #45a049; /* Màu xanh lá cây đậm hơn khi di chuột qua */
+                                    }
+                            </style>
+
+                            <form >
+                                <select class="input-select" id="categorySelect">
+                                    <!-- List categories lấy = js -->
+                                </select>
+                                <input id="keyword" name="keyword" class="input" placeholder="Tìm kiếm sản phẩm">
+                                <button class="search-btn" type="submit">Search</button>
+                            </form>
+                        </div>
+                        <div class="header-right">
+                            <ul>
+                                <li class="dropdown d-none d-md-block">
+                                    <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButton" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="pe-7s-users"></i>
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButton">
+                                        @if (User.Identity.IsAuthenticated)
+                                        {
+                                            <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">Tài khoản của tôi</a></li>
+                                        }
+                                        else
+                                        {
+                                            <li><a class="dropdown-item" href="/dang-nhap.html">Đăng nhập</a></li>
+                                            <li><a class="dropdown-item" href="/dang-ky.html">Đăng ký</a></li>
+
+                                        }
+                                        
+                                    </ul>
+                                </li>
+                                <li class=" d-block d-lg-none">
+                                    <form class="hm-searchbox">
+                                        <input id="keyword" name="keyword" class="input-field" type="text" placeholder="Nhập tên xe">
+                                        <button class="btn btn-outline-whisper btn-primary-hover btn-search" type="submit"><i class="pe-7s-search"></i></button>
+                                    </form>
+                                </li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    @await Component.InvokeAsync("NumberCart")
+                                }
+                                <li class="mobile-menu_wrap d-block d-lg-none">
+                                    <a href="#mobileMenu" class="mobile-menu_btn toolbar-btn pl-0" type="submit">
+                                        <i class="pe-7s-menu"></i>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-header header-sticky" data-bg-color="#5a8561">
+        <div class="container">
+            <div class="main-header_nav position-relative">
+                <div class="row align-items-center">
+                    <div class="col-lg-16 d-none d-lg-block">
+                        <div class="main-menu">
+                            <nav class="main-nav">
+                                <ul>
+                                    <li class="drop-holder">
+                                        <a href="/">Trang Chủ</a>
+                                    </li>
+                                    <li>
+                                        <a href="/shop.html">Chọn xe</a>
+                                    </li>
+                                    <li>
+                                        <a href="/">Hướng dẫn mua hàng</a>
+                                    </li>
+                                    <li>
+                                        <a href="/">Liên Hệ</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mobile-menu_wrapper" id="mobileMenu">
+        <div class="harmic-offcanvas-body">
+            <div class="inner-body">
+                <div class="harmic-offcanvas-top">
+                    <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+                </div>
+                <div class="offcanvas-user-info text-center px-6 pb-5">
+                    <div class=" text-silver">
+                        <p class="shipping mb-0">Giao xe tận nơi và nhanh chóng</p>
+                    </div>
+                    <ul class="dropdown-wrap justify-content-center text-silver">
+                        <li class="dropdown dropup">
+                            <button class="btn btn-link dropdown-toggle ht-btn" type="button" id="languageButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                                English
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="languageButtonTwo">
+                                <li><a class="dropdown-item" href="#">Tiếng việt</a></li>
+                            </ul>
+                        </li>                      
+                        <li class="dropdown dropup">
+                            <button class="btn btn-link dropdown-toggle ht-btn usd-dropdown" type="button" id="currencyButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                                USD
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="currencyButtonTwo">
+                                <li><a class="dropdown-item" href="#">VNĐ</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown dropup">
+                            <button class="btn btn-link dropdown-toggle ht-btn p-0" type="button" id="settingButtonTwo" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="pe-7s-users"></i>
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="settingButtonTwo">
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a class="dropdown-item" href="/tai-khoan-cua-toi.html">Tài khoản của tôi</a></li>
+                                }
+                                else
+                                {
+                                    <li><a class="dropdown-item" href="/dang-nhap.html">Đăng nhập</a></li>
+                                    <li><a class="dropdown-item" href="/dang-ky.html">Đăng ký</a></li>
+
+                                }
+                            </ul>
+                        </li>
+                        <li class="dropdown dropup">
+                            <a href="#searchBar" class="search-btn toolbar-btn pl-0">
+                                <i class="pe-7s-search"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="offcanvas-menu_area">
+                    <nav class="offcanvas-navigation">
+                        <ul class="mobile-menu">
+                            <li class="menu-item-has-children">
+                                <a href="/">Trang Chủ</a>
+                            </li>
+                            <li class="menu-item-has-children">
+                                <a href="/shop.html">Chọn xe</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-search_wrapper" id="searchBar">
+        <div class="harmic-offcanvas-body">
+            <div class="container h-100">
+                <div class="offcanvas-search">
+                    <div class="harmic-offcanvas-top">
+                        <a href="#" class="button-close"><i class="pe-7s-close"></i></a>
+                    </div>
+                    <span class="searchbox-info">Tìm kiếm</span>
+                    <form class="hm-searchbox">
+                        <input id="keyword" name="keyword" class="input-field" type="text" placeholder="Nhập hãng xe">
+                        <button class="btn btn-outline-whisper btn-primary-hover btn-search" type="submit"><i class="pe-7s-search"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="offcanvas-minicart_wrapper" id="miniCart">
+        @if (User.Identity.IsAuthenticated)
+        {
+            @await Component.InvokeAsync("HeaderCart")
+        }
+    </div>
+    <div class="global-overlay"></div>
+</header>
